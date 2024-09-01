@@ -1,0 +1,30 @@
+# Microservice name
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      # Roots config
+      mvc:
+        routes:
+          # Account service
+          - id: account-service-route
+            uri: http://localhost:8081
+            predicates:
+              - Path=/api/v1/accounts/**
+          # Bill service
+          - id: bill-service-route
+            uri: http://localhost:8082
+            predicates:
+              - Path=/api/v1/bills/**
+
+
+# Server port
+server:
+  port: 8765
+
+# Microservices registration url
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

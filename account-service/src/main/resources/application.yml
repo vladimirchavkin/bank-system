@@ -1,0 +1,54 @@
+# Application name
+spring:
+  application:
+    name: account-service
+  # DB config
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/account-service-db
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+
+server:
+  port: 8081
+
+# microservices registration url
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  #make sure that any instance has a unique id
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+# SpringDoc
+springdoc:
+  info:
+    title: "Account Service."
+    version: "0.0.1"
+    description: "This API exposes endpoints for account service."
+  servers:
+    - url: "http://localhost:8080"
+      description: "Local Server."
+    - url: "http://localhost:8080"
+      description: "Dev Server."
+    - url: "http://localhost:8080"
+      description: "Prod Server."
+  api-docs:
+    enabled: true
+    path: "/account-service-api-docs"
+  swagger-ui:
+    enabled: true
+    path: "/account-service-documentation"
+    try-it-out-enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+    filter: true
+
+# Logging
+logging:
+  pattern.console: "%C{.1} [%-5level] %d{HH:mm:ss} - %msg%n"
