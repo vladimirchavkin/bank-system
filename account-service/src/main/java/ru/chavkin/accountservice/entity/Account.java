@@ -16,42 +16,42 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Table(name = "accounts")
+//@Table(name = "accounts")
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+//    @Column(name = "id")
     private Long id;
 
     @NonNull
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
     @NonNull
-    @Column(name = "surname")
+//    @Column(name = "surname")
     private String surname;
 
     @NonNull
-    @Column(name = "email")
+//    @Column(name = "email")
     private String email;
 
     @NonNull
-    @Column(name = "phone_number")
+//    @Column(name = "phone_number")
     private String phoneNumber;
 
     @NonNull
     @CreationTimestamp
-    @Column(name = "created_on")
+//    @Column(name = "created_on")
     private OffsetDateTime createdOn = OffsetDateTime.now();
 
     @NonNull
     @UpdateTimestamp
-    @Column(name = "updated_on")
+//    @Column(name = "updated_on")
     private OffsetDateTime updatedOn = OffsetDateTime.now();
 
     @NonNull
-    @Column(name = "bill_id")
+//    @Column(name = "bill_id")
     private Long billId;
 
 }

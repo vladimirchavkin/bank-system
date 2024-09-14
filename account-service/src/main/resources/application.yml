@@ -32,11 +32,11 @@ springdoc:
     version: "0.0.1"
     description: "This API exposes endpoints for account service."
   servers:
-    - url: "http://localhost:8080"
+    - url: "http://localhost:8081"
       description: "Local Server."
-    - url: "http://localhost:8080"
+    - url: "http://localhost:8081"
       description: "Dev Server."
-    - url: "http://localhost:8080"
+    - url: "http://localhost:8081"
       description: "Prod Server."
   api-docs:
     enabled: true
